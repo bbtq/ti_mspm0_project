@@ -1,7 +1,7 @@
 /*
  * myuart.c
  *
- *  Created on: 2024Äê7ÔÂ11ÈÕ
+ *  Created on: 2024å¹´7æœˆ11æ—¥
  *      Author: Admin
  */
 
@@ -11,15 +11,15 @@ char rxbuf[100] = {};
 uint8_t rxflag = 0;
 
 void uart0_pack_transmit(uint8_t rxdata){
-    static uint8_t len = 2 - 1;     //ÉèÖÃÊı¾İ°ü³¤¶È
-    static uint8_t now_len = 0; //ÓÃÀ´´¢´æµ±Ç°´¢´æµ½µÚ¼¸Î»
+    static uint8_t len = 2 - 1;     //è®¾ç½®æ•°æ®åŒ…é•¿åº¦
+    static uint8_t now_len = 0; //ç”¨æ¥å‚¨å­˜å½“å‰å‚¨å­˜åˆ°ç¬¬å‡ ä½
     rxbuf[now_len] = rxdata;
     now_len = now_len==len ? 0 : now_len+1;
 
 
     if(now_len==0){
         rxflag = 1;
-//        DL_UART_Main_transmitData(UART_0_INST, rxflag); //½«½ÓÊÕµ½µÄÊı¾İ·µ»¹»ØÈ¥
+//        DL_UART_Main_transmitData(UART_0_INST, rxflag); //æ ‡å¿—ä½æ£€æµ‹
     }
 }
 
