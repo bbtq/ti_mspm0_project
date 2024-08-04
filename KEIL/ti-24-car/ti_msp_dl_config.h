@@ -104,6 +104,22 @@ extern "C" {
 
 
 
+
+/* Defines for I2C0 */
+#define I2C0_INST                                                           I2C0
+#define I2C0_INST_IRQHandler                                     I2C0_IRQHandler
+#define I2C0_INST_INT_IRQN                                         I2C0_INT_IRQn
+#define I2C0_BUS_SPEED_HZ                                                 100000
+#define GPIO_I2C0_SDA_PORT                                                 GPIOA
+#define GPIO_I2C0_SDA_PIN                                          DL_GPIO_PIN_0
+#define GPIO_I2C0_IOMUX_SDA                                       (IOMUX_PINCM1)
+#define GPIO_I2C0_IOMUX_SDA_FUNC                        IOMUX_PINCM1_PF_I2C0_SDA
+#define GPIO_I2C0_SCL_PORT                                                 GPIOA
+#define GPIO_I2C0_SCL_PIN                                          DL_GPIO_PIN_1
+#define GPIO_I2C0_IOMUX_SCL                                       (IOMUX_PINCM2)
+#define GPIO_I2C0_IOMUX_SCL_FUNC                        IOMUX_PINCM2_PF_I2C0_SCL
+
+
 /* Defines for UART_0 */
 #define UART_0_INST                                                        UART0
 #define UART_0_INST_IRQHandler                                  UART0_IRQHandler
@@ -151,30 +167,13 @@ extern "C" {
 #define KEY_PORT                                                         (GPIOA)
 
 /* Defines for PIN_18: GPIOA.18 with pinCMx 19 on package pin 22 */
+// groups represented: ["motor_count","KEY"]
+// pins affected: ["L_A","L_B","R_A","R_B","PIN_18"]
+#define GPIO_MULTIPLE_GPIOA_INT_IRQN                            (GPIOA_INT_IRQn)
+#define GPIO_MULTIPLE_GPIOA_INT_IIDX            (DL_INTERRUPT_GROUP1_IIDX_GPIOA)
+#define KEY_PIN_18_IIDX                                     (DL_GPIO_IIDX_DIO18)
 #define KEY_PIN_18_PIN                                          (DL_GPIO_PIN_18)
 #define KEY_PIN_18_IOMUX                                         (IOMUX_PINCM19)
-/* Port definition for Pin Group GPIO */
-#define GPIO_PORT                                                        (GPIOA)
-
-/* Defines for SCL: GPIOA.0 with pinCMx 1 on package pin 1 */
-#define GPIO_SCL_PIN                                             (DL_GPIO_PIN_0)
-#define GPIO_SCL_IOMUX                                            (IOMUX_PINCM1)
-/* Defines for SDA: GPIOA.1 with pinCMx 2 on package pin 2 */
-#define GPIO_SDA_PIN                                             (DL_GPIO_PIN_1)
-#define GPIO_SDA_IOMUX                                            (IOMUX_PINCM2)
-/* Port definition for Pin Group SR04 */
-#define SR04_PORT                                                        (GPIOA)
-
-/* Defines for TRIG: GPIOA.3 with pinCMx 4 on package pin 7 */
-#define SR04_TRIG_PIN                                            (DL_GPIO_PIN_3)
-#define SR04_TRIG_IOMUX                                           (IOMUX_PINCM4)
-/* Defines for ECHO: GPIOA.4 with pinCMx 5 on package pin 8 */
-// pins affected by this interrupt request:["ECHO"]
-#define SR04_INT_IRQN                                           (GPIOA_INT_IRQn)
-#define SR04_INT_IIDX                           (DL_INTERRUPT_GROUP1_IIDX_GPIOA)
-#define SR04_ECHO_IIDX                                       (DL_GPIO_IIDX_DIO4)
-#define SR04_ECHO_PIN                                            (DL_GPIO_PIN_4)
-#define SR04_ECHO_IOMUX                                           (IOMUX_PINCM5)
 /* Port definition for Pin Group motor_in */
 #define motor_in_PORT                                                    (GPIOA)
 
@@ -190,6 +189,25 @@ extern "C" {
 /* Defines for R2: GPIOA.8 with pinCMx 9 on package pin 12 */
 #define motor_in_R2_PIN                                          (DL_GPIO_PIN_8)
 #define motor_in_R2_IOMUX                                         (IOMUX_PINCM9)
+/* Port definition for Pin Group motor_count */
+#define motor_count_PORT                                                 (GPIOA)
+
+/* Defines for L_A: GPIOA.9 with pinCMx 10 on package pin 13 */
+#define motor_count_L_A_IIDX                                 (DL_GPIO_IIDX_DIO9)
+#define motor_count_L_A_PIN                                      (DL_GPIO_PIN_9)
+#define motor_count_L_A_IOMUX                                    (IOMUX_PINCM10)
+/* Defines for L_B: GPIOA.10 with pinCMx 11 on package pin 14 */
+#define motor_count_L_B_IIDX                                (DL_GPIO_IIDX_DIO10)
+#define motor_count_L_B_PIN                                     (DL_GPIO_PIN_10)
+#define motor_count_L_B_IOMUX                                    (IOMUX_PINCM11)
+/* Defines for R_A: GPIOA.11 with pinCMx 12 on package pin 15 */
+#define motor_count_R_A_IIDX                                (DL_GPIO_IIDX_DIO11)
+#define motor_count_R_A_PIN                                     (DL_GPIO_PIN_11)
+#define motor_count_R_A_IOMUX                                    (IOMUX_PINCM12)
+/* Defines for R_B: GPIOA.12 with pinCMx 13 on package pin 16 */
+#define motor_count_R_B_IIDX                                (DL_GPIO_IIDX_DIO12)
+#define motor_count_R_B_PIN                                     (DL_GPIO_PIN_12)
+#define motor_count_R_B_IOMUX                                    (IOMUX_PINCM13)
 
 
 
@@ -201,6 +219,7 @@ void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_motor_pwm_init(void);
 void SYSCFG_DL_TIMER_0_init(void);
+void SYSCFG_DL_I2C0_init(void);
 void SYSCFG_DL_UART_0_init(void);
 void SYSCFG_DL_adc_init(void);
 

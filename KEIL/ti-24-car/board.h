@@ -16,8 +16,14 @@
 
 #define limit(value, min, max)      ((value) < (min) ? (min) : ((value) > (max) ? (max) : (value)))
 
+extern bool sound_flag;
 extern char Serial_RxPacket[100];				//"@MSG\r\n"
 extern uint8_t Serial_RxFlag;
+extern bool start_flag ;
+extern uint8_t task ;
+extern float base_direction ;
+extern float base_BackDirection;
+extern uint32_t sys_time_1ms ;
 
 void board_init(void);
 

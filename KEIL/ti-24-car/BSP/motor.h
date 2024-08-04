@@ -19,6 +19,7 @@ typedef struct
     uint16_t deadzone_down;
     uint16_t Duty_limitMax;//0~1000
     uint16_t Duty_limitMin;//0~1000
+    uint32_t count;
 
 }per_param;
 

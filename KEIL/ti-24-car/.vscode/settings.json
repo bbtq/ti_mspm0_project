@@ -1,0 +1,25 @@
+{
+    "files.encoding": "gbk",
+    "files.associations": {
+        "stdio.h": "c",
+        "board.h": "c",
+        "bsp_ultrasonic.h": "c",
+        "bsp_mpu6050.h": "c",
+        "ti_msp_dl_config.h": "c",
+        "motor.h": "c",
+        "bsp_xunji.h": "c",
+        "pid.h": "c",
+        "type_traits": "c",
+        "bsp_kalman.h": "c",
+        "inv_mpu.h": "c",
+        "string.h": "c",
+        "bsp_filter.h": "c",
+        "stdlib.h": "c",
+        "bsp_jy901.h": "c",
+        "gw_grayscale_sensor.h": "c",
+        "sw_i2c_interface.h": "c",
+        "trace.h": "c",
+        "limits": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
