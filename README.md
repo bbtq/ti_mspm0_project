@@ -1,8 +1,15 @@
-# ti_msp_ALL-in-ONE
- 准备电赛的m0l1306板卡的各种应用驱动
- 
- 其中包含示例：
- 
- 小车（mpu6050，灰度循迹...）
- 
- 二维云台
+# TI-MSPM0L1306-Project
+
+ 电赛期间准备的工程（根据不同开发平台分类）
+
+ ## 包含：
+ - **CCS**
+   - car-control (简单的小车控制)
+   - uart-control-stepmotorPlatform （23年电赛激光云台-串口控制的低成本高精度二维云台）
+ - **KEIL**
+   - basic-car （功能完善的小车测控）
+   - ti-24-car （2024年电赛H题，最快用时30s）
+
+## 使用：
+
+**见文件夹内部README**
